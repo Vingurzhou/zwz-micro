@@ -1,14 +1,20 @@
+# zwzmicro
+
 ### macOS安装Go
 
 https://dl.google.com/go/go1.15.1.darwin-amd64.pkg
 
-### api语法介绍
+### api语法
 
 https://go-zero.dev/cn/docs/design/grammar?_highlight=api
 
-### proto语法介绍
+### proto语法
 
 https://protobuf.dev/programming-guides/proto3/
+
+### yaml语法
+
+https://go-zero.dev/cn/docs/configuration/api
 
 ### 宿主机器环境
 
@@ -29,7 +35,7 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 ```
 
-### 运行容器
+### 容器环境
 
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose-env.yml up -d
@@ -47,6 +53,7 @@ sh deploy/script/gencode/genModel.sh
 ```
 
 ## 启动项目
+
 ```bash
 sh main.sh
 
