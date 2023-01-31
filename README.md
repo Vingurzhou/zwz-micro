@@ -32,15 +32,22 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ### 运行容器
 
 ```bash
-/usr/local/bin/docker-compose -f /Users/zhouwenzhe/src/go-zero-looklook/docker-compose.yml -f /Users/zhouwenzhe/src/go-zero-looklook/docker-compose-env.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose-env.yml up -d
+
 ```
 
 ### 生成代码
 
 ```bash
-sh genApi.sh
-sh genRpc.sh
-sh genSwagger.sh
-sh genModel.sh
+sh deploy/script/gencode/genApi.sh
+sh deploy/script/gencode/genRpc.sh
+sh deploy/script/gencode/genSwagger.sh
+sh deploy/script/gencode/genModel.sh
+
+```
+
+## 启动项目
+```bash
+sh main.sh
 
 ```
