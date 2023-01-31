@@ -1,0 +1,25 @@
+syntax = "v1"
+
+info(
+	title: "用户中心服务"
+	desc: "用户中心服务"
+	author: "zhouwenzhe"
+	email: "zwz0123460218@icloud.com"
+	version: "v1"
+)
+
+import (
+	"user/user.api"
+)
+
+//============================> usercenter v1 <============================
+//no need login
+@server(
+	prefix: usercenter/v1
+	group: user
+)
+service usercenter {
+	@doc "register"
+	@handler register
+	post /user/register (RegisterReq) returns (RegisterResp)
+}

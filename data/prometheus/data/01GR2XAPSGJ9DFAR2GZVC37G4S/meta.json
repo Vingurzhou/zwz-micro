@@ -1,0 +1,17 @@
+{
+	"ulid": "01GR2XAPSGJ9DFAR2GZVC37G4S",
+	"minTime": 1675124311276,
+	"maxTime": 1675130400000,
+	"stats": {
+		"numSamples": 79450,
+		"numSeries": 350,
+		"numChunks": 350
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GR2XAPSGJ9DFAR2GZVC37G4S"
+		]
+	},
+	"version": 1
+}
