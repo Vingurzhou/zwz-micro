@@ -49,11 +49,14 @@ source deploy/sql/*.sql
 sh deploy/script/*/*.sh
 vim deploy/nginx/conf.d/looklook-gateway.conf
 vim deploy/prometheus/server/prometheus.yml
+vim deploy/filebeat/conf/filebeat.yml
+vim deploy/go-stash/etc/config.yaml
 ```
 
 ### 启动项目
 
 ```bash
+go mod tidy
 sh main.sh
 
 ```
