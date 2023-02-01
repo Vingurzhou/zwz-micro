@@ -58,20 +58,20 @@ scrape_configs:
 #          job: travel-rpc
 #          app: travel-rpc
 #          env: dev
-#  - job_name: 'usercenter-api'
-#    static_configs:
-#      - targets: ['looklook:4008']
-#        labels:
-#          job: usercenter-api
-#          app: usercenter-api
-#          env: dev
-#  - job_name: 'usercenter-rpc'
-#    static_configs:
-#      - targets: ['looklook:4009']
-#        labels:
-#          job: usercenter-rpc
-#          app: usercenter-rpc
-#          env: dev
+  - job_name: 'usercenter-api'
+    static_configs:
+      - targets: ['looklook:4008']
+        labels:
+          job: usercenter-api
+          app: usercenter-api
+          env: dev
+  - job_name: 'usercenter-rpc'
+    static_configs:
+      - targets: ['looklook:4009']
+        labels:
+          job: usercenter-rpc
+          app: usercenter-rpc
+          env: dev
 #  - job_name: 'mqueue-job'
 #    static_configs:
 #      - targets: [ 'looklook:4010' ]

@@ -20,3 +20,33 @@ type RegisterResp struct {
 	AccessExpire int64  `json:"accessExpire"`
 	RefreshAfter int64  `json:"refreshAfter"`
 }
+
+type LoginReq struct {
+	Mobile   string `json:"mobile"`
+	Password string `json:"password"`
+}
+
+type LoginResp struct {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
+type WXMiniAuthReq struct {
+	Code          string `json:"code"`
+	IV            string `json:"iv"`
+	EncryptedData string `json:"encryptedData"`
+}
+
+type WXMiniAuthResp struct {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
+type UserInfoReq struct {
+}
+
+type UserInfoResp struct {
+	UserInfo User `json:"userInfo"`
+}

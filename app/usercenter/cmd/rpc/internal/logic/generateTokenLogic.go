@@ -2,19 +2,16 @@ package logic
 
 import (
 	"context"
-	"github.com/golang-jwt/jwt/v4"
 	"github.com/pkg/errors"
 	"looklook/common/ctxdata"
-	"looklook/common/xerr"
 	"time"
 
+	"github.com/golang-jwt/jwt/v4"
 	"looklook/app/usercenter/cmd/rpc/internal/svc"
 	"looklook/app/usercenter/cmd/rpc/pb"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
-
-var ErrGenerateTokenError = xerr.NewErrMsg("生成token失败")
 
 type GenerateTokenLogic struct {
 	ctx    context.Context
@@ -44,6 +41,7 @@ func (l *GenerateTokenLogic) GenerateToken(in *pb.GenerateTokenReq) (*pb.Generat
 		RefreshAfter: now + accessExpire/2,
 	}, nil
 }
+
 func (l *GenerateTokenLogic) getJwtToken(secretKey string, iat, seconds, userId int64) (string, error) {
 
 	claims := make(jwt.MapClaims)

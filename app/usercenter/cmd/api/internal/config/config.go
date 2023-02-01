@@ -10,10 +10,6 @@ type Config struct {
 	JwtAuth struct {
 		AccessSecret string
 	}
-	// 微信小程序配置
-	WxMiniConf struct {
-		AppId  string `json:"AppId"`  //微信appId
-		Secret string `json:"Secret"` //微信secret
-	}
+	WxMiniConf        WxMiniConf
 	UsercenterRpcConf zrpc.RpcClientConf
 }

@@ -2,14 +2,13 @@ package user
 
 import (
 	"context"
-	"github.com/jinzhu/copier"
-	"github.com/pkg/errors"
+	"looklook/app/usercenter/cmd/api/internal/svc"
+	"looklook/app/usercenter/cmd/api/internal/types"
 	"looklook/app/usercenter/cmd/rpc/usercenter"
 	"looklook/app/usercenter/model"
 
-	"looklook/app/usercenter/cmd/api/internal/svc"
-	"looklook/app/usercenter/cmd/api/internal/types"
-
+	"github.com/jinzhu/copier"
+	"github.com/pkg/errors"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -19,15 +18,16 @@ type RegisterLogic struct {
 	svcCtx *svc.ServiceContext
 }
 
-func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) *RegisterLogic {
-	return &RegisterLogic{
+func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) RegisterLogic {
+	return RegisterLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *RegisterLogic) Register(req *types.RegisterReq) (*types.RegisterResp, error) {
+func (l *RegisterLogic) Register(req types.RegisterReq) (*types.RegisterResp, error) {
+
 	registerResp, err := l.svcCtx.UsercenterRpc.Register(l.ctx, &usercenter.RegisterReq{
 		Mobile:   req.Mobile,
 		Password: req.Password,

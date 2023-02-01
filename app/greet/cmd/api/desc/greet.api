@@ -7,6 +7,7 @@ type Response {
 }
 
 service greet-api {
+	@doc "greet"
 	@handler GreetHandler
 	get /from/:name(Request) returns (Response)
 }

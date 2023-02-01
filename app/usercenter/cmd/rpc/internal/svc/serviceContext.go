@@ -1,10 +1,11 @@
 package svc
 
 import (
-	"github.com/zeromicro/go-zero/core/stores/redis"
-	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"looklook/app/usercenter/cmd/rpc/internal/config"
 	"looklook/app/usercenter/model"
+
+	"github.com/zeromicro/go-zero/core/stores/redis"
+	"github.com/zeromicro/go-zero/core/stores/sqlx"
 )
 
 type ServiceContext struct {
@@ -16,6 +17,7 @@ type ServiceContext struct {
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
+
 	sqlConn := sqlx.NewMysql(c.DB.DataSource)
 
 	return &ServiceContext{
@@ -26,5 +28,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		}),
 
 		UserAuthModel: model.NewUserAuthModel(sqlConn, c.Cache),
-		UserModel:     model.NewUserModel(sqlConn, c.Cache)}
+		UserModel:     model.NewUserModel(sqlConn, c.Cache),
+	}
 }

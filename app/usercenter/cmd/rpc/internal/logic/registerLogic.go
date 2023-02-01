@@ -3,16 +3,13 @@ package logic
 import (
 	"context"
 	"github.com/pkg/errors"
+	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
+	"looklook/app/usercenter/cmd/rpc/internal/svc"
 	"looklook/app/usercenter/cmd/rpc/usercenter"
 	"looklook/app/usercenter/model"
 	"looklook/common/tool"
 	"looklook/common/xerr"
-
-	"looklook/app/usercenter/cmd/rpc/internal/svc"
-	"looklook/app/usercenter/cmd/rpc/pb"
-
-	"github.com/zeromicro/go-zero/core/logx"
 )
 
 var ErrUserAlreadyRegisterError = xerr.NewErrMsg("user has been registered")
@@ -31,7 +28,8 @@ func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Register
 	}
 }
 
-func (l *RegisterLogic) Register(in *pb.RegisterReq) (*pb.RegisterResp, error) {
+func (l *RegisterLogic) Register(in *usercenter.RegisterReq) (*usercenter.RegisterResp, error) {
+
 	user, err := l.svcCtx.UserModel.FindOneByMobile(l.ctx, in.Mobile)
 	if err != nil && err != model.ErrNotFound {
 		return nil, errors.Wrapf(xerr.NewErrCode(xerr.DB_ERROR), "mobile:%s,err:%v", in.Mobile, err)

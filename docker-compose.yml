@@ -37,6 +37,7 @@ services:
     working_dir: /go/looklook
     volumes:
       - .:/go/looklook
+      - /Users/zhouwenzhe/go/pkg:/go/pkg
     privileged: true
     restart: always
     networks:
@@ -44,9 +45,9 @@ services:
     stdin_open: true                     # 打开标准输入，可以接受外部输入
     tty: true
     platform: linux/x86_64
-    ports:
-      - 2001:2001
-      - 2004:2004
+#    ports:
+#      - 2001:2001
+#      - 2004:2004
 
 networks:
   looklook_net:

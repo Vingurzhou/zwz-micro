@@ -45,14 +45,13 @@ docker-compose -f docker-compose.yml -f docker-compose-env.yml up -d
 ### 生成代码
 
 ```bash
-sh deploy/script/gencode/genApi.sh
-sh deploy/script/gencode/genRpc.sh
-sh deploy/script/gencode/genSwagger.sh
-sh deploy/script/gencode/genModel.sh
-
+source deploy/sql/*.sql
+sh deploy/script/*/*.sh
+vim deploy/nginx/conf.d/looklook-gateway.conf
+vim deploy/prometheus/server/prometheus.yml
 ```
 
-## 启动项目
+### 启动项目
 
 ```bash
 sh main.sh
