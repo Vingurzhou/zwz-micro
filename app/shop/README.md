@@ -4,3 +4,4 @@ goctl model mysql datasource -url="root:Z00a0319@tcp(127.0.0.1)/zwzmicro_shop" -
 goctl api plugin -plugin goctl-swagger="swagger -filename swagger.json" -api ./cmd/desc/api/*.api -dir "./"
 #go run shop.go
 ```
+![img.png](img.png)
