@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"zwobt/mq/internal/config"
+	"looklook/app/shop/cmd/mq/internal/config"
 )
 
 type ServiceContext struct {

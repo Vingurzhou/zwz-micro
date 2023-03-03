@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"zwobt/common/kqueue"
-	"zwobt/mq/internal/svc"
+	"looklook/app/shop/cmd/mq/internal/svc"
+	"looklook/common/kqueue"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
