@@ -1,0 +1,2080 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "type title here",
+    "description": "type desc here",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "shop/v1/order": {
+      "get": {
+        "summary": "get order list",
+        "operationId": "GetOrderList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetOrderListResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "current",
+            "description": "当前页",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageSize",
+            "description": "分页数量",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "order"
+        ]
+      },
+      "delete": {
+        "summary": "delete order",
+        "operationId": "DeleteOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteOrderResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteOrderReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "order"
+        ]
+      },
+      "post": {
+        "summary": "create order",
+        "operationId": "CreateOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateOrderResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateOrderReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "order"
+        ]
+      },
+      "put": {
+        "summary": "update order",
+        "operationId": "UpdateOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateOrderResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateOrderReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "order"
+        ]
+      }
+    },
+    "shop/v1/order/{id}": {
+      "get": {
+        "summary": "get order info",
+        "operationId": "GetOrderInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetOrderInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "order"
+        ]
+      }
+    },
+    "shop/v1/product": {
+      "get": {
+        "summary": "get product list",
+        "operationId": "GetProductList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetProductListResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      },
+      "delete": {
+        "summary": "delete product",
+        "operationId": "DeleteProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteProductResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteProductReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      },
+      "post": {
+        "summary": "create product",
+        "operationId": "CreateProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateProductResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateProductReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      },
+      "put": {
+        "summary": "update product",
+        "operationId": "UpdateProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateProductResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateProductReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      }
+    },
+    "shop/v1/product-check": {
+      "get": {
+        "summary": "delete product",
+        "operationId": "CheckProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CheckProductResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      }
+    },
+    "shop/v1/product/{id}": {
+      "get": {
+        "summary": "get product info",
+        "operationId": "GetProductInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetProductInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "product"
+        ]
+      }
+    },
+    "shop/v1/user": {
+      "get": {
+        "summary": "get user list",
+        "operationId": "GetUserList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetUserListResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "current",
+            "description": "当前页",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageSize",
+            "description": "分页数量",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "user"
+        ]
+      },
+      "delete": {
+        "summary": "delete user",
+        "operationId": "DeleteUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DeleteUserResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteUserReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "user"
+        ]
+      },
+      "post": {
+        "summary": "create User",
+        "operationId": "CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateUserResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "user"
+        ]
+      },
+      "put": {
+        "summary": "update user",
+        "operationId": "UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateUserReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "shop/v1/user/{id}": {
+      "get": {
+        "summary": "get user info",
+        "operationId": "GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetUserInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "user"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CheckProductReq": {
+      "type": "object",
+      "title": "CheckProductReq"
+    },
+    "CheckProductResp": {
+      "type": "object",
+      "title": "CheckProductResp"
+    },
+    "CreateOrderReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CreateOrderReq",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "CreateOrderResp": {
+      "type": "object",
+      "title": "CreateOrderResp"
+    },
+    "CreateProductReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_num": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "update_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delete_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "del_state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CreateProductReq",
+      "required": [
+        "id",
+        "product_name",
+        "product_num",
+        "product_image",
+        "product_url",
+        "create_time",
+        "update_time",
+        "delete_time",
+        "del_state",
+        "version"
+      ]
+    },
+    "CreateProductResp": {
+      "type": "object",
+      "title": "CreateProductResp"
+    },
+    "CreateUserReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CreateUserReq",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "CreateUserResp": {
+      "type": "object",
+      "title": "CreateUserResp"
+    },
+    "DeleteOrderReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteOrderReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DeleteOrderResp": {
+      "type": "object",
+      "title": "DeleteOrderResp"
+    },
+    "DeleteProductReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "DeleteProductReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DeleteProductResp": {
+      "type": "object",
+      "title": "DeleteProductResp"
+    },
+    "DeleteUserReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteUserReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DeleteUserResp": {
+      "type": "object",
+      "title": "DeleteUserResp"
+    },
+    "GetOrderInfoReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "GetOrderInfoReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetOrderInfoResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GetOrderInfoResp",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "GetOrderListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "GetOrderListReq",
+      "required": [
+        "current",
+        "pageSize"
+      ]
+    },
+    "GetOrderListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总数"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "GetOrderListResp",
+      "required": [
+        "list",
+        "total",
+        "current",
+        "pageSize"
+      ]
+    },
+    "GetProductInfoReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GetProductInfoReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetProductInfoResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_num": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "update_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delete_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "del_state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GetProductInfoResp",
+      "required": [
+        "id",
+        "product_name",
+        "product_num",
+        "product_image",
+        "product_url",
+        "create_time",
+        "update_time",
+        "delete_time",
+        "del_state",
+        "version"
+      ]
+    },
+    "GetProductListReq": {
+      "type": "object",
+      "title": "GetProductListReq"
+    },
+    "GetProductListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/product"
+          }
+        }
+      },
+      "title": "GetProductListResp",
+      "required": [
+        "list"
+      ]
+    },
+    "GetUserInfoReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "GetUserInfoReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetUserInfoResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GetUserInfoResp",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "GetUserListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "GetUserListReq",
+      "required": [
+        "current",
+        "pageSize"
+      ]
+    },
+    "GetUserListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总数"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "GetUserListResp",
+      "required": [
+        "list",
+        "total",
+        "current",
+        "pageSize"
+      ]
+    },
+    "UpdateOrderReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "UpdateOrderReq",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "UpdateOrderResp": {
+      "type": "object",
+      "title": "UpdateOrderResp"
+    },
+    "UpdateProductReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_num": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "update_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delete_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "del_state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "UpdateProductReq",
+      "required": [
+        "id",
+        "product_name",
+        "product_num",
+        "product_image",
+        "product_url",
+        "create_time",
+        "update_time",
+        "delete_time",
+        "del_state",
+        "version"
+      ]
+    },
+    "UpdateProductResp": {
+      "type": "object",
+      "title": "UpdateProductResp"
+    },
+    "UpdateUserReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "UpdateUserReq",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "UpdateUserResp": {
+      "type": "object",
+      "title": "UpdateUserResp"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "User",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "UserBindReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/string"
+        },
+        "mobile": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "title": "UserBindReq"
+    },
+    "UserBindResp": {
+      "type": "object",
+      "title": "UserBindResp"
+    },
+    "UserDetailReq": {
+      "type": "object",
+      "title": "UserDetailReq"
+    },
+    "UserDetailResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "UserDetailResp",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "UserListReq": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20"
+        },
+        "sort": {
+          "type": "string",
+          "default": "id desc"
+        }
+      },
+      "title": "UserListReq",
+      "required": [
+        "current",
+        "pageSize",
+        "sort"
+      ]
+    },
+    "UserListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总数"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "UserListResp",
+      "required": [
+        "list",
+        "total",
+        "current",
+        "pageSize"
+      ]
+    },
+    "UserLogoutReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        }
+      },
+      "title": "UserLogoutReq",
+      "required": [
+        "Authorization"
+      ]
+    },
+    "UserLogoutResp": {
+      "type": "object",
+      "title": "UserLogoutResp"
+    },
+    "order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "order",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "orderBindReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/string"
+        },
+        "mobile": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "title": "orderBindReq"
+    },
+    "orderBindResp": {
+      "type": "object",
+      "title": "orderBindResp"
+    },
+    "orderDetailReq": {
+      "type": "object",
+      "title": "orderDetailReq"
+    },
+    "orderDetailResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": " 用户名"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称"
+        },
+        "email": {
+          "type": "string",
+          "description": " 邮箱"
+        },
+        "mobile": {
+          "type": "string",
+          "description": " 电话"
+        },
+        "password": {
+          "type": "string",
+          "description": " 密码"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 性别 0:女 1:男"
+        },
+        "avatar": {
+          "type": "string",
+          "description": " 头像地址"
+        },
+        "wechatUnionid": {
+          "type": "string",
+          "description": " 微信用户唯一ID"
+        },
+        "facebookId": {
+          "type": "string",
+          "description": " facebook用户唯一ID"
+        },
+        "appleId": {
+          "type": "string",
+          "description": " apple用户唯一ID"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 版本号"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updateTime": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "orderDetailResp",
+      "required": [
+        "id",
+        "roleId",
+        "uid",
+        "name",
+        "nickname",
+        "email",
+        "mobile",
+        "password",
+        "sex",
+        "avatar",
+        "wechatUnionid",
+        "facebookId",
+        "appleId",
+        "version",
+        "state",
+        "createTime",
+        "updateTime"
+      ]
+    },
+    "orderListReq": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20"
+        },
+        "sort": {
+          "type": "string",
+          "default": "id desc"
+        }
+      },
+      "title": "orderListReq",
+      "required": [
+        "current",
+        "pageSize",
+        "sort"
+      ]
+    },
+    "orderListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总数"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分页数量"
+        }
+      },
+      "title": "orderListResp",
+      "required": [
+        "list",
+        "total",
+        "current",
+        "pageSize"
+      ]
+    },
+    "orderLogoutReq": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string"
+        }
+      },
+      "title": "orderLogoutReq",
+      "required": [
+        "Authorization"
+      ]
+    },
+    "orderLogoutResp": {
+      "type": "object",
+      "title": "orderLogoutResp"
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_num": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "product_image": {
+          "type": "string"
+        },
+        "product_url": {
+          "type": "string"
+        },
+        "create_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "update_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delete_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "del_state": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "product",
+      "required": [
+        "id",
+        "product_name",
+        "product_num",
+        "product_image",
+        "product_url",
+        "create_time",
+        "update_time",
+        "delete_time",
+        "del_state",
+        "version"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}

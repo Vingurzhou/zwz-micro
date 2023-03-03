@@ -1,0 +1,522 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "zhouwenzhe"
+	email: "zwz0123460218@icloud.com"
+	version: "v1"
+)
+
+type product {
+	Id           int64  `json:"id"`
+	ProductName  string `json:"product_name"`
+	ProductNum   int64  `json:"product_num"`
+	ProductImage string `json:"product_image"`
+	ProductUrl   string `json:"product_url"`
+	CreateTime   int64  `json:"create_time"`
+	UpdateTime   int64  `json:"update_time"`
+	DeleteTime   int64  `json:"delete_time"`
+	DelState     int64  `json:"del_state"`
+	Version      int64  `json:"version"`
+}
+
+type (
+	GetProductInfoReq {
+		Id int64 `path:"id"`
+	}
+	GetProductInfoResp {
+		Id           int64  `json:"id"`
+		ProductName  string `json:"product_name"`
+		ProductNum   int64  `json:"product_num"`
+		ProductImage string `json:"product_image"`
+		ProductUrl   string `json:"product_url"`
+		CreateTime   int64  `json:"create_time"`
+		UpdateTime   int64  `json:"update_time"`
+		DeleteTime   int64  `json:"delete_time"`
+		DelState     int64  `json:"del_state"`
+		Version      int64  `json:"version"`
+	}
+)
+
+type (
+	CreateProductReq {
+		Id           int64  `json:"id"`
+		ProductName  string `json:"product_name"`
+		ProductNum   int64  `json:"product_num"`
+		ProductImage string `json:"product_image"`
+		ProductUrl   string `json:"product_url"`
+		CreateTime   int64  `json:"create_time"`
+		UpdateTime   int64  `json:"update_time"`
+		DeleteTime   int64  `json:"delete_time"`
+		DelState     int64  `json:"del_state"`
+		Version      int64  `json:"version"`
+	}
+	CreateProductResp {
+	}
+)
+
+type (
+	UpdateProductReq {
+		Id           int64  `json:"id"`
+		ProductName  string `json:"product_name"`
+		ProductNum   int64  `json:"product_num"`
+		ProductImage string `json:"product_image"`
+		ProductUrl   string `json:"product_url"`
+		CreateTime   int64  `json:"create_time"`
+		UpdateTime   int64  `json:"update_time"`
+		DeleteTime   int64  `json:"delete_time"`
+		DelState     int64  `json:"del_state"`
+		Version      int64  `json:"version"`
+	}
+	UpdateProductResp {
+	}
+)
+type (
+	DeleteProductReq {
+		Id int64 `json:"id"`
+	}
+	DeleteProductResp {
+	}
+)
+
+type (
+	GetProductListReq {
+	}
+	GetProductListResp {
+		List []*product `json:"list"`
+	}
+)
+
+type order {
+	Id            int64  `json:"id"`
+	RoleId        int64  `json:"roleId"`
+	Uid           string `json:"uid"`
+	Name          string `json:"name"`          // 用户名
+	Nickname      string `json:"nickname"`      // 昵称
+	Email         string `json:"email"`         // 邮箱
+	Mobile        string `json:"mobile"`        // 电话
+	Password      string `json:"password"`      // 密码
+	Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+	Avatar        string `json:"avatar"`        // 头像地址
+	WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+	FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+	AppleId       string `json:"appleId"`       // apple用户唯一ID
+	Version       int64  `json:"version"`       // 版本号
+	State         int64  `json:"state"`
+	CreateTime    int64  `json:"createTime"`
+	UpdateTime    int64  `json:"updateTime"`
+}
+type (
+	orderDetailReq {
+	}
+	orderDetailResp {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+)
+
+type (
+	orderBindReq {
+		Email  *string `json:"email,optional"`
+		Mobile *string `json:"mobile,optional"`
+	}
+	orderBindResp {
+	}
+)
+
+type (
+	orderLogoutReq {
+		Authorization string `header:"Authorization"`
+	}
+	orderLogoutResp {
+	}
+)
+
+type (
+	orderListReq {
+		Uid      string `form:"uid,optional"`
+		Name     string `form:"name,optional"`
+		Nickname string `form:"nickname,optional"`
+		Email    string `form:"email,optional"`
+		Mobile   string `form:"mobile,optional"`
+		Current  int64  `form:"current,default=1"`
+		PageSize int64  `form:"pageSize,default=20"`
+		Sort     string `form:"sort,default=id desc"`
+	}
+	orderListResp {
+		List     []order `json:"list"`
+		Total    int64   `json:"total"`    //总数
+		Current  int64   `json:"current"`  //当前页
+		PageSize int64   `json:"pageSize"` //分页数量
+	}
+)
+
+type (
+	GetOrderInfoReq {
+		Id int `path:"id"`
+	}
+	GetOrderInfoResp {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+)
+
+type (
+	CreateOrderReq {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+	CreateOrderResp {
+	}
+)
+
+type (
+	UpdateOrderReq {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+	UpdateOrderResp {
+	}
+)
+type (
+	DeleteOrderReq {
+		Id int `json:"id"`
+	}
+	DeleteOrderResp {
+	}
+)
+
+type (
+	GetOrderListReq {
+		Current  int64 `json:"current"`  //当前页
+		PageSize int64 `json:"pageSize"` //分页数量
+	}
+	GetOrderListResp {
+		List     []*order `json:"list"`
+		Total    int64    `json:"total"`    //总数
+		Current  int64    `json:"current"`  //当前页
+		PageSize int64    `json:"pageSize"` //分页数量
+	}
+)
+
+type User {
+	Id            int64  `json:"id"`
+	RoleId        int64  `json:"roleId"`
+	Uid           string `json:"uid"`
+	Name          string `json:"name"`          // 用户名
+	Nickname      string `json:"nickname"`      // 昵称
+	Email         string `json:"email"`         // 邮箱
+	Mobile        string `json:"mobile"`        // 电话
+	Password      string `json:"password"`      // 密码
+	Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+	Avatar        string `json:"avatar"`        // 头像地址
+	WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+	FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+	AppleId       string `json:"appleId"`       // apple用户唯一ID
+	Version       int64  `json:"version"`       // 版本号
+	State         int64  `json:"state"`
+	CreateTime    int64  `json:"createTime"`
+	UpdateTime    int64  `json:"updateTime"`
+}
+type (
+	UserDetailReq {
+	}
+	UserDetailResp {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+)
+
+type (
+	UserBindReq {
+		Email  *string `json:"email,optional"`
+		Mobile *string `json:"mobile,optional"`
+	}
+	UserBindResp {
+	}
+)
+
+type (
+	UserLogoutReq {
+		Authorization string `header:"Authorization"`
+	}
+	UserLogoutResp {
+	}
+)
+
+type (
+	UserListReq {
+		Uid      string `form:"uid,optional"`
+		Name     string `form:"name,optional"`
+		Nickname string `form:"nickname,optional"`
+		Email    string `form:"email,optional"`
+		Mobile   string `form:"mobile,optional"`
+		Current  int64  `form:"current,default=1"`
+		PageSize int64  `form:"pageSize,default=20"`
+		Sort     string `form:"sort,default=id desc"`
+	}
+	UserListResp {
+		List     []User `json:"list"`
+		Total    int64  `json:"total"`    //总数
+		Current  int64  `json:"current"`  //当前页
+		PageSize int64  `json:"pageSize"` //分页数量
+	}
+)
+
+type (
+	GetUserInfoReq {
+		Id int `path:"id"`
+	}
+	GetUserInfoResp {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+)
+
+type (
+	CreateUserReq {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+	CreateUserResp {
+	}
+)
+
+type (
+	UpdateUserReq {
+		Id            int64  `json:"id"`
+		RoleId        int64  `json:"roleId"`
+		Uid           string `json:"uid"`
+		Name          string `json:"name"`          // 用户名
+		Nickname      string `json:"nickname"`      // 昵称
+		Email         string `json:"email"`         // 邮箱
+		Mobile        string `json:"mobile"`        // 电话
+		Password      string `json:"password"`      // 密码
+		Sex           int64  `json:"sex"`           // 性别 0:女 1:男
+		Avatar        string `json:"avatar"`        // 头像地址
+		WechatUnionid string `json:"wechatUnionid"` // 微信用户唯一ID
+		FacebookId    string `json:"facebookId"`    // facebook用户唯一ID
+		AppleId       string `json:"appleId"`       // apple用户唯一ID
+		Version       int64  `json:"version"`       // 版本号
+		State         int64  `json:"state"`
+		CreateTime    int64  `json:"createTime"`
+		UpdateTime    int64  `json:"updateTime"`
+	}
+	UpdateUserResp {
+	}
+)
+type (
+	DeleteUserReq {
+		Id int `json:"id"`
+	}
+	DeleteUserResp {
+	}
+)
+
+type (
+	GetUserListReq {
+		Current  int64 `json:"current"`  //当前页
+		PageSize int64 `json:"pageSize"` //分页数量
+	}
+	GetUserListResp {
+		List     []*User `json:"list"`
+		Total    int64   `json:"total"`    //总数
+		Current  int64   `json:"current"`  //当前页
+		PageSize int64   `json:"pageSize"` //分页数量
+	}
+)
+
+@server(
+	prefix: shop/v1
+	group: user
+)
+service shop {
+	@doc "get user list"
+	@handler GetUserList
+	get /user (GetUserListReq) returns (GetUserListResp)
+	
+	@doc "get user info"
+	@handler GetUserInfo
+	get /user/:id (GetUserInfoReq) returns (GetUserInfoResp)
+	
+	@doc "create User"
+	@handler CreateUser
+	post /user (CreateUserReq) returns (CreateUserResp)
+	
+	@doc "update user"
+	@handler UpdateUser
+	put /user (UpdateUserReq) returns (UpdateUserResp)
+	
+	@doc "delete user"
+	@handler DeleteUser
+	delete /user (DeleteUserReq) returns (DeleteUserResp)
+}
+
+@server(
+	prefix: shop/v1
+	group: order
+)
+service shop {
+	@doc "get order list"
+	@handler GetOrderList
+	get /order (GetOrderListReq) returns (GetOrderListResp)
+	
+	@doc "get order info"
+	@handler GetOrderInfo
+	get /order/:id (GetOrderInfoReq) returns (GetOrderInfoResp)
+	
+	@doc "create order"
+	@handler CreateOrder
+	post /order (CreateOrderReq) returns (CreateOrderResp)
+	
+	@doc "update order"
+	@handler UpdateOrder
+	put /order (UpdateOrderReq) returns (UpdateOrderResp)
+	
+	@doc "delete order"
+	@handler DeleteOrder
+	delete /order (DeleteOrderReq) returns (DeleteOrderResp)
+}
+
+type (
+	CheckProductReq {
+	}
+	CheckProductResp {
+		PageSize int64 `json:"pageSize"` //分页数量
+	}
+)
+@server(
+	prefix: shop/v1
+	group: product
+)
+service shop {
+	@doc "delete product"
+	@handler CheckProduct
+	get /product-check (CheckProductReq) returns (CheckProductResp)
+	
+	@doc "get product list"
+	@handler GetProductList
+	get /product (GetProductListReq) returns (GetProductListResp)
+	
+	@doc "get product info"
+	@handler GetProductInfo
+	get /product/:id (GetProductInfoReq) returns (GetProductInfoResp)
+	
+	@doc "create product"
+	@handler CreateProduct
+	post /product (CreateProductReq) returns (CreateProductResp)
+	
+	@doc "update product"
+	@handler UpdateProduct
+	put /product (UpdateProductReq) returns (UpdateProductResp)
+	
+	@doc "delete product"
+	@handler DeleteProduct
+	delete /product (DeleteProductReq) returns (DeleteProductResp)
+}
