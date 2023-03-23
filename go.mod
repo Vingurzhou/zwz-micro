@@ -8,11 +8,12 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/sony/sonyflake v1.0.0
 	google.golang.org/grpc v1.50.1
-	google.golang.org/protobuf v1.28.1 // indirect
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
 	github.com/Masterminds/squirrel v1.5.3
+	github.com/streadway/amqp v1.0.0
 	github.com/zeromicro/go-queue v1.1.8
 )
 

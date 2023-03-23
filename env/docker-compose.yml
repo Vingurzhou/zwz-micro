@@ -28,7 +28,7 @@ services:
 #    image: lyumikael/gomodd:v1.0.0 # if you "macOs intel" or "linux amd"
     #image: lyumikael/go-modd-env:v1.0.0  # if you macOs m1
     build:
-      context: ./build/docker/golang
+      context: ../build/docker/golang
     container_name: looklook
     environment:
       # 时区上海 - Timezone Shanghai
