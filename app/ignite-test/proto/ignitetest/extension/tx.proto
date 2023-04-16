@@ -1,0 +1,7 @@
+syntax = "proto3";
+package ignitetest.extension;
+
+option go_package = "ignite-test/x/extension/types";
+
+// Msg defines the Msg service.
+service Msg {}
