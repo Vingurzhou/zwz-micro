@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    expose:
+      - '9528'
+    ports:
+      - '9528:9528'
+    volumes:
+      - .:/home/node/app
+    command: ['npm','run','dev']
