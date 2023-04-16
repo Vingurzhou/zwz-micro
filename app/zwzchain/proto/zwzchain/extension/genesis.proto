@@ -1,0 +1,12 @@
+syntax = "proto3";
+package zwzchain.extension;
+
+import "gogoproto/gogo.proto";
+import "zwzchain/extension/params.proto";
+
+option go_package = "zwzchain/x/extension/types";
+
+// GenesisState defines the extension module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

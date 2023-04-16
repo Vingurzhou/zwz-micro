@@ -1,0 +1,7 @@
+syntax = "proto3";
+package zwzchain.extension;
+
+option go_package = "zwzchain/x/extension/types";
+
+// Msg defines the Msg service.
+service Msg {}

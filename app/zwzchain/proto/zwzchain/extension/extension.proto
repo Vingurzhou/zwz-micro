@@ -1,0 +1,26 @@
+syntax = "proto3";
+package zwzchain.extension;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "zwzchain/extension/params.proto";
+
+option go_package = "zwzchain/x/extension/types";
+
+// Extension defines the gRPC extend service.
+service Extension {
+  // Extend extend the module.
+  rpc Extend(ExtendRequest) returns (ExtendResponse) {
+    option (google.api.http) = {
+      post: "/zwzchain/extension/v1beta1/extend"
+      body: "*"
+    };
+  }
+}
+
+// ExtendRequest is request type for the Extension/Extend RPC method.
+message ExtendRequest {}
+
+// ExtendResponse is response type for the Extension/Extend RPC method.
+message ExtendResponse {}
