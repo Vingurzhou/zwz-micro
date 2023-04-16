@@ -6,7 +6,7 @@ import (
 	"context"
 	"google.golang.org/grpc"
 	"log"
-	pb "looklook/app/grpc-test/helloworld"
+	pb "looklook/app/grpc-test/pb"
 	"testing"
 )
 

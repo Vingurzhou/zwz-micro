@@ -4,6 +4,7 @@
     "title": "",
     "version": ""
   },
+  "host": "localhost:1001",
   "schemes": [
     "http",
     "https"
