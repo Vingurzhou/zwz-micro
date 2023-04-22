@@ -10,6 +10,7 @@ import (
 	"github.com/spf13/cobra"
 
 	abci "github.com/tendermint/tendermint/abci/types"
+	"loan/x/loan/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -18,7 +19,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"loan/x/loan/client/cli"
 	"loan/x/loan/keeper"
-	"loan/x/loan/types"
 )
 
 var (
