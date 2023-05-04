@@ -1,0 +1,12 @@
+syntax = "proto3";
+package tntchain.tntchain;
+
+import "gogoproto/gogo.proto";
+import "tntchain/tntchain/params.proto";
+
+option go_package = "tntchain/x/tntchain/types";
+
+// GenesisState defines the tntchain module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

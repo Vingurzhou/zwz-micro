@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package tntchain.tntchain;
+
+
+import "google/api/annotations.proto";
+
+
+option go_package = "grpc-test/x/tntchain/types";
+
+// Extend defines the gRPC extend service
+service Extend {
+  // Transfer v1beta1版本的钱包转账.
+  rpc Transfer(TransferRequest) returns (TransferResponse) {
+    option (google.api.http) = {
+      put: "/tntchain/extend/v1beta1/transfer"
+      body: "*"
+    };
+  }
+  // AddKey v1beta1版本的创建钱包.
+  rpc AddKey(AddKeyRequest) returns (AddKeyResponse) {
+    option (google.api.http) = {
+      post: "/tntchain/extend/v1beta1/key"
+      body: "*"
+    };
+  }
+  //  GetTransactionList v1beta1版本的获取交易列表
+  rpc GetTransactionList(GetTransactionListRequest) returns (GetTransactionListResponse) {
+    option (google.api.http) = {
+      get: "/tntchain/extend/v1beta1/transaction"
+    };
+  }
+}
+
+message TransferRequest {
+  string from = 1;
+  string to = 2;
+  string amount = 3;
+  string mnemonic=4;
+}
+
+message TransferResponse {
+  string txhash = 1;
+}
+
+message AddKeyRequest {
+  string account = 1;
+}
+
+message AddKeyResponse {
+  string address = 1;
+  string mnemonic = 2;
+}
+
+message GetTransactionListRequest{
+  string  startTime = 1;
+  string  endTime = 2;
+  uint64 order_by = 3;
+  uint64 page = 4;
+  uint64 limit = 5;
+}
+message GetTransactionListResponse{
+  int64  totalGasUsedFees = 2;
+  uint64 totalTxNums = 3;
+}

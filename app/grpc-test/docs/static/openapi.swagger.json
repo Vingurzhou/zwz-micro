@@ -1,0 +1,231 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tntchain/tntchain/extend.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Extend"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/tntchain/extend/v1beta1/key": {
+      "post": {
+        "summary": "AddKey v1beta1版本的创建钱包.",
+        "operationId": "Extend_AddKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tntchainAddKeyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tntchainAddKeyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Extend"
+        ]
+      }
+    },
+    "/tntchain/extend/v1beta1/transaction": {
+      "get": {
+        "summary": "GetTransactionList v1beta1版本的获取交易列表",
+        "operationId": "Extend_GetTransactionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tntchainGetTransactionListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "Extend"
+        ]
+      }
+    },
+    "/tntchain/extend/v1beta1/transfer": {
+      "put": {
+        "summary": "Transfer v1beta1版本的钱包转账.",
+        "operationId": "Extend_Transfer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tntchainTransferResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tntchainTransferRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Extend"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "tntchainAddKeyRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        }
+      }
+    },
+    "tntchainAddKeyResponse": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "mnemonic": {
+          "type": "string"
+        }
+      }
+    },
+    "tntchainGetTransactionListResponse": {
+      "type": "object",
+      "properties": {
+        "totalGasUsedFees": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalTxNums": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "tntchainTransferRequest": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "mnemonic": {
+          "type": "string"
+        }
+      }
+    },
+    "tntchainTransferResponse": {
+      "type": "object",
+      "properties": {
+        "txhash": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

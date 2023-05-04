@@ -1,0 +1,7 @@
+syntax = "proto3";
+package tntchain.tntchain;
+
+option go_package = "tntchain/x/tntchain/types";
+
+// Msg defines the Msg service.
+service Msg {}
