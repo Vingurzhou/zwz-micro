@@ -1,4 +1,4 @@
-module planet
+module vue-test
 
 go 1.19
 

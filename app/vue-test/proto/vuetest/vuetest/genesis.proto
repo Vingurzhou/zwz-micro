@@ -1,0 +1,12 @@
+syntax = "proto3";
+package vuetest.vuetest;
+
+import "gogoproto/gogo.proto";
+import "vuetest/vuetest/params.proto";
+
+option go_package = "vue-test/x/vuetest/types";
+
+// GenesisState defines the vuetest module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}
