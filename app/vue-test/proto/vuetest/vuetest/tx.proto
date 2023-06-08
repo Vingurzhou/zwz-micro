@@ -1,7 +1,0 @@
-syntax = "proto3";
-package vuetest.vuetest;
-
-option go_package = "vue-test/x/vuetest/types";
-
-// Msg defines the Msg service.
-service Msg {}
